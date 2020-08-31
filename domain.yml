@@ -1,0 +1,60 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- bot_challenge
+- complain
+- show_avaliabe_dates
+- store_date
+- store_time
+- thanks
+- make_house_call
+- telling_address
+entities:
+- part_of_body
+- date
+- time
+slots:
+  address:
+    type: text
+  date:
+    type: text
+  part_of_body:
+    type: text
+  specialist:
+    type: text
+  time:
+    type: text
+responses:
+  utter_greet:
+  - text: Hello!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am MedBot, your medical assistant. Tell me, what`s wrong with you?
+  utter_reply_to_thanks:
+  - text: You`re welcome!
+  utter_appointment_card:
+  - text: "Great! We have created an appointment. Your specialist: {specialist}, John\
+      \ Smith \nDate: {date} / {time}\n{address} \n\nPlease, check-in at the registry\
+      \ 15 minutes before the appointment."
+  utter_make_house_call:
+  - text: Great! Wait for the doctor to arrive.
+actions:
+- action_react_to_complain
+- utter_greet
+- utter_goodbye
+- utter_iamabot
+- action_show_avaliabe_dates
+- make_house_call
+- action_store_date
+- action_show_available_time_slots
+- action_store_time
+- utter_appointment_card
+- utter_reply_to_thanks
+- action_make_house_call
+- utter_make_house_call
